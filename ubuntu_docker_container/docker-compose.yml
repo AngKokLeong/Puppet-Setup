@@ -3,17 +3,29 @@ version: '3.8'
 volumes:
   ubuntu_data:
 
+
+networks:
+  puppet-agent-network:
+    driver: bridge
+      ipam:
+      config:
+        - subnet: 172.18.110.0/24
+          gateway: 172.18.110.1
+
 services:
   app:
     image: ubuntu_image
     container_name: ubuntu-container
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
-    
+
     volumes:
-      - ../..:/workspaces:cached
       - ubuntu_data:/data
-      
-    # Overrides default command so things don't shut down after the process ends.   command: /bin/bash
+
+    networks:
+      puppet-agent-network:
+        ipv4_address: 172.18.110.20
+
+    # Overrides default command so things don't shut down after the process ends.
     command: apachectl -D FOREGROUND
