@@ -5,16 +5,16 @@ volumes:
 
 networks:
   puppet-agent-network:
-    driver: bridge
-      ipam:
+    ipam:
+      driver: default
       config:
         - subnet: 172.18.110.0/24
-        - gateway: 172.18.110.1/24
+          gateway: 172.18.110.1/24
 
 services:
   app:
     image: ubuntu_image
-    container_name: ubuntu-container
+    container_name: pa3114394F
     build:
       context: .
       dockerfile: Dockerfile
@@ -24,7 +24,7 @@ services:
 
     networks:
       puppet-agent-network:
-        ipv4_address: 172.18.110.20/24
+        ipv4_address: 172.18.110.20
 
     # Overrides default command so things don't shut down after the process ends.
     command: apachectl -D FOREGROUND
