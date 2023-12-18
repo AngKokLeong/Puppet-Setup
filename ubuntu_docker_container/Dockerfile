@@ -13,5 +13,4 @@ RUN apt-get -yq update
 #RUN wget --inet4-only --content-disposition 'https://apt.puppet.com/pool/bionic/puppet8/p/puppet-agent/puppet-agent_8.3.1-1bionic_amd64.deb'
 #RUN dpkg -i puppet-agent_8.3.1-1bionic_amd64.deb
 
-RUN apt-get install apache2
-RUN apt-get -yq install nano vim iproute2
+RUN apt-get -yq install nano vim iproute2 apache2
