@@ -9,7 +9,6 @@ networks:
       driver: default
       config:
         - subnet: 172.18.110.0/24
-          gateway: 172.18.110.1/24
 
 services:
   app:
