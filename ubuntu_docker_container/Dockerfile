@@ -4,6 +4,7 @@ WORKDIR /
 
 COPY . ./
 
+RUN apt-get -yq update
 RUN apt-get -yq install wget
 RUN apt-get -yq update
 
