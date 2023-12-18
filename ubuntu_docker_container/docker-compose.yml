@@ -18,6 +18,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      extra_hosts:
+        - "puppetclient:172.18.110.20"
+        - "puppetmaster puppet:172.20.113.18"
 
     volumes:
       - ubuntu_data:/data
