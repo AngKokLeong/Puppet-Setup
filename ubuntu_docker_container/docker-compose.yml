@@ -28,7 +28,6 @@ services:
         ipv4_address: 172.18.110.20
 
     extra_hosts:
-
       - "puppetmaster puppet:172.20.113.18"
 
     # Overrides default command so things don't shut down after the process ends.
