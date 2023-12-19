@@ -18,6 +18,7 @@ services:
       context: .
       dockerfile: Dockerfile
 
+    hostname: puppetclient
 
     volumes:
       - ubuntu_data:/data
@@ -27,7 +28,7 @@ services:
         ipv4_address: 172.18.110.20
 
     extra_hosts:
-      - "hostname puppetclient:172.18.110.20"
+
       - "puppetmaster puppet:172.20.113.18"
 
     # Overrides default command so things don't shut down after the process ends.
