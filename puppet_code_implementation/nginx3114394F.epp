@@ -1,0 +1,5 @@
+# NGIX Configuration
+server {
+  listen <%= $listen_port %>;
+  server_name <%= server_name %>;
+}
