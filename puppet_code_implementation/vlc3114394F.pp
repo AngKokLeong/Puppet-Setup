@@ -10,7 +10,7 @@ class vlc3114394F {
 
     service { 'vlc_service':
       ensure => "running",
-      enabled => 'true',
+      enable => 'true',
       require => Package['VLC Media Player']
     }
 }
