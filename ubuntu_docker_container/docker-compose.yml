@@ -18,7 +18,7 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    hostname: puppetclient
+    hostname: pa3114394F
 
     volumes:
       - ubuntu_data:/data
