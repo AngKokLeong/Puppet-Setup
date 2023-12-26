@@ -16,4 +16,4 @@ RUN apt-get -yq install nano vim iproute2 apache2 puppet-agent iputils-ping syst
 RUN cat puppet_configuration.txt > /etc/puppetlabs/puppet/puppet.conf
 RUN cat extend_path_variable_puppet_command.txt >> ~/.bashrc
 
-USER myuser
+RUN useradd myuser
