@@ -14,6 +14,7 @@ services:
   app:
     image: ubuntu_image
     container_name: pa3114394F
+    privileged: true
     build:
       context: .
       dockerfile: Dockerfile
@@ -31,4 +32,4 @@ services:
       - "puppetmaster puppet:172.20.113.18"
 
     # Overrides default command so things don't shut down after the process ends.
-    command: apachectl -D FOREGROUND
+    command: /sbin/init
