@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 
 WORKDIR /
 
+USER myuser
+
 COPY . ./
 
 RUN apt-get -yq update
@@ -15,4 +17,3 @@ RUN dpkg --install puppet-agent_8.3.1-1bionic_amd64.deb
 RUN apt-get -yq install nano vim iproute2 apache2 puppet-agent iputils-ping systemd
 RUN cat puppet_configuration.txt > /etc/puppetlabs/puppet/puppet.conf
 RUN cat extend_path_variable_puppet_command.txt >> ~/.bashrc
-
