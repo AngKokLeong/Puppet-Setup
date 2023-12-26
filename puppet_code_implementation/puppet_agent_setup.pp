@@ -13,15 +13,22 @@ class puppet_agent_setup {
 
   user { 'myuser':
     ensure => 'present',
-    shell => '/bin/bash'
+    shell => '/bin/bash',
     managehome => true,
     gid => 'myuser',
-    group => ['admins']
+    groups => ['admins']
   }
 
   package {'sudo':
     ensure => 'present'
   }
 
+  file { '/etc/sudoers.d/myuser': 
+    ensure => file,
+    owner => 'root',
+    group => 'root',
+    mode => '0400',
+    content => 'myuser ALL=(ALL) NOPASSWD: ALL\n';
+  }
 
 }
