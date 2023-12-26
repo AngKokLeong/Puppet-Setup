@@ -1,1 +1,1 @@
-export PATH=$PATH:/opt/puppetlabs
+export PATH=$PATH:/opt/puppetlabs/bin
