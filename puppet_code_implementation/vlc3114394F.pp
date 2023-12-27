@@ -16,7 +16,7 @@ class vlc3114394F {
       path => '/lib/systemd/system/vlc.service',
       require => Package['VLC Media Player'],
       recurse => true,
-      source_permissions => "use"      
+      mode => '0777'     
     }
 
     exec { 'Change the command for vlc':
