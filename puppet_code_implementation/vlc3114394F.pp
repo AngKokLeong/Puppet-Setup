@@ -10,7 +10,7 @@ class vlc3114394F {
     }
 
     file { 'transfer vlc service unit file to puppet agent':
-      source => ["file: /home/dockeradm/Desktop/Puppet-Setup/puppet_code_implementation/systemd_unit_file/vlc.service"],
+      source => ["file:///home/dockeradm/Desktop/Puppet-Setup/puppet_code_implementation/systemd_unit_file/vlc.service"],
       path => '/lib/systemd/system/vlc.service',
       require => Package['VLC Media Player']      
     }
