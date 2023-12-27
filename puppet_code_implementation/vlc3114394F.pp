@@ -15,7 +15,7 @@ class vlc3114394F {
       source => 'puppet:///modules/vlc3114394F/vlc.service',
       path => '/lib/systemd/system/vlc.service',
       require => Package['VLC Media Player'],
-      recurse => true,
+      recurse => remote,
       mode => '0777'     
     }
 
