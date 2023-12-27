@@ -9,6 +9,7 @@ class mysql_installer {
   }
 
   service { 'mysql-ubuntu-service':
+    name => 'mysql-server',
     ensure => 'running',
     enable => true,
     require => Package['mysql-ubuntu']
