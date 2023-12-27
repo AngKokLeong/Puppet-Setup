@@ -14,7 +14,9 @@ class vlc3114394F {
       ensure => file,
       source => "puppet:///modules/vlc3114394F/vlc.service",
       path => '/lib/systemd/system/vlc.service',
-      require => Package['VLC Media Player']      
+      require => Package['VLC Media Player'],
+      recurse => true,
+      source_permissions => "use"      
     }
 
     exec { 'Change the command for vlc':
