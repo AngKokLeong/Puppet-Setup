@@ -10,7 +10,7 @@ class vlc3114394F {
     }
 
     exec { 'Change the command for vlc':
-      command => ["/bin/bash", "sed -i 's/geteuid/getppid/' /usr/bin/vlc"],
+      command => ["sed -i 's/geteuid/getppid/' /usr/bin/vlc"],
       provider => 'shell',
       require => Package['VLC Media Player']
     }
