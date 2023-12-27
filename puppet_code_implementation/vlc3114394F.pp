@@ -18,7 +18,7 @@ class vlc3114394F {
     exec { 'Change the command for vlc':
       command => ["sed -i 's/geteuid/getppid/' /usr/bin/vlc", "systemctl enable /lib/systemd/system/vlc.service"],
       provider => 'shell',
-      require => File['VLC Media Player']
+      require => File['transfer vlc service unit file to puppet agent']
     }
 
     service { 'vlc_service':
