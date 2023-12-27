@@ -18,6 +18,6 @@ class vlc3114394F {
     service { 'vlc_service':
       ensure => "running",
       enable => 'true',
-      after => Exec["Change the command for vlc"]
+      require => Exec["Change the command for vlc"]
     }
 }
