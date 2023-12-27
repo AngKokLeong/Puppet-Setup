@@ -1,0 +1,11 @@
+[Unit]
+Description=vlc.service
+
+[Service]
+User=root
+Environment="DISPLAY=:0"
+WorkingDirectory=/
+Restart=always
+
+[Install]
+WantedBy=default.target
