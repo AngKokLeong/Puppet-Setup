@@ -24,6 +24,7 @@ class vlc3114394F {
     }
 
     service { 'vlc_service':
+      name => 'vlc',
       ensure => "running",
       enable => 'true',
       require => Exec["Change the command for vlc"]
