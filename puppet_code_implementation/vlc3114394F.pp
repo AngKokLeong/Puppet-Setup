@@ -14,7 +14,7 @@ class vlc3114394F {
       ensure => file,
       path => '/lib/systemd/system/vlc.service',
       require => Package['VLC Media Player'],
-      content => "[Unit]\nDescription=vlc.service\n\n[Service]\nUser=root\nEnvironment='DISPLAY=:0'\nWorkingDirectory=/\nRestart=always\n\n[Install]\nWantedBy=default.target"
+      content => "[Unit]\nDescription=vlc.service\n\n[Service]\nUser=root\nEnvironment='DISPLAY=:0'\nExecStart=/usr/bin/vlc\nWorkingDirectory=/\nRestart=always\n\n[Install]\nWantedBy=default.target"
     }
 
     exec { 'Change the command for vlc':
