@@ -1,0 +1,1 @@
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON <%= $database_name %>.* TO '<%= $user_name =>'@'localhost';
