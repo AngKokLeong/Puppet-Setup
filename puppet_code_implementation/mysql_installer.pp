@@ -1,6 +1,9 @@
 
 class mysql_installer {
 
+  $mysql_command = "mysql -e "
+
+
   package { 'mysql-ubuntu':
     name => 'mysql-server',
     ensure => 'latest',
@@ -17,13 +20,7 @@ class mysql_installer {
 
   exec { 'execute-sql-command':
     # execute the shell script
-    command => @("MYSQL Commands"/L)
-      mysql \ 
-      -e "CREATE USER 'user3114394F'@'localhost' IDENTIFIED BY 'password3114394F';", \
-      -e "CREATE DATABASE db3114394F;", \
-      -e "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON db3114394F.* TO 'user3114394F'@'localhost';"
-      |-"MYSQL Commands"
-    ,
+    command => ["${mysql_command}${epp('mysql/create_new_database.epp', {database_name => db3114394F})}"],
     provider => shell,
     require => Service['mysql-ubuntu-service']
   }
