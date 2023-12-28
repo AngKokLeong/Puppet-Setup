@@ -1,6 +1,8 @@
 
 class apache3114394F {
 
+  $html_content = epp('module3114394f/index.epp')
+
   package { 'Apache Server':
     name => 'apache2',
     ensure => 'installed'
@@ -16,7 +18,7 @@ class apache3114394F {
   file { 'deploy html file':
     path => '/var/www/html/app3114394F/index.html',
     ensure => 'file',
-    content => epp('module3114394F/index.epp'),
+    content => "${html_content}",
     require => Service["Apache Server Service"]
   }
 }
