@@ -19,14 +19,24 @@ class mysql_installer {
     require => Package['mysql-ubuntu']
   }
 
-  exec { 'execute-sql-command':
+  exec { 'execute-sql-command-to-create-database':
     # execute the shell script
     command => [
-      "${mysql_command}${create_new_database}",
-      "${mysql_command}${create_new_database_user}"
+      "${mysql_command}${create_new_database}"
     ],
     provider => shell,
     require => Service['mysql-ubuntu-service']
   }
+
+  exec { 'execute-sql-command-to-create-user':
+    # execute the shell script
+    command => [
+        "${mysql_command}${create_new_database_user}"
+    ],
+    provider => shell,
+    require => Exec['execute-sql-command-to-create-database']
+  }
+
+
 
 }
