@@ -14,6 +14,8 @@ services:
   app:
     image: ubuntu_image
     container_name: pa3114394F
+    ports:
+      - 31200:80
     privileged: true
     build:
       context: .
