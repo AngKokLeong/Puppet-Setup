@@ -2,7 +2,7 @@
 class mysql_installer {
 
   $mysql_command = "mysql -e "
-
+  $create_new_database = epp('mysql/create_new_database.epp', {database_name => db3114394F})
 
   package { 'mysql-ubuntu':
     name => 'mysql-server',
@@ -20,7 +20,7 @@ class mysql_installer {
 
   exec { 'execute-sql-command':
     # execute the shell script
-    command => ["${mysql_command}${epp('mysql/create_new_database.epp', {database_name => db3114394F})}"],
+    command => ["${mysql_command}${create_new_database}"],
     provider => shell,
     require => Service['mysql-ubuntu-service']
   }
