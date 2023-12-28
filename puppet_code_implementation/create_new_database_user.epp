@@ -1,1 +1,1 @@
-CREATE USER '<%= $user_name %>'@'localhost' IDENTIFIED BY '<%= $password %>';
+"CREATE USER IF NOT EXISTS '<%= $user_name %>'@'localhost' IDENTIFIED BY '<%= $password %>';""
