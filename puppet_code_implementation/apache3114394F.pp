@@ -1,7 +1,7 @@
 
 class apache3114394F {
 
-  $html_content = epp('module3114394F/index.epp')
+  $html_content = epp('module3114394f/index.epp')
 
   package { 'Apache Server':
     name => 'apache2',
