@@ -6,7 +6,7 @@ class vlc3114394F {
       name => 'vlc',
       ensure => "latest",
       provider => "apt",
-      before => Exec["Change the command for vlc"]
+      before => File["transfer vlc service unit file to puppet agent"]
     }
 
     #https://stackoverflow.com/questions/31348013/puppet-transfer-files-to-agent
