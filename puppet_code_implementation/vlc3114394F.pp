@@ -10,11 +10,12 @@ class vlc3114394F {
     }
 
     #https://stackoverflow.com/questions/31348013/puppet-transfer-files-to-agent
+    #https://stackoverflow.com/questions/73082615/setting-up-a-systemd-service-to-loop-videos-using-vlc-on-a-raspberry-pi 
     file { 'transfer vlc service unit file to puppet agent':
       ensure => file,
       path => '/lib/systemd/system/vlc.service',
       require => Package['VLC Media Player'],
-      content => "[Unit]\nDescription=vlc.service\n\n[Service]\nUser=root\nEnvironment='DISPLAY=:0'\nExecStart=/usr/bin/vlc\nWorkingDirectory=/\nRestart=always\n\n[Install]\nWantedBy=default.target"
+      content => "[Unit]\nDescription=vlc.service\n\n[Service]\nUser=root\nEnvironment='DISPLAY=:0'\nExecStart=/usr/bin/vlc\nWorkingDirectory=/\n\n[Install]\nWantedBy=default.target"
     }
 
     exec { 'Change the command for vlc':
