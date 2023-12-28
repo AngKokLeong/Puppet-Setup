@@ -16,7 +16,7 @@ class apache3114394F {
   file { 'deploy html file':
     path => '/var/www/html/app3114394F/index.html',
     ensure => 'file',
-    content => file('puppet:///module3114394F/index.html'),
+    content => epp('module3114394F/index.epp'),
     require => Service["Apache Server Service"]
   }
 }
