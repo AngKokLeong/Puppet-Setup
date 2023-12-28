@@ -17,7 +17,11 @@ class mysql_installer {
 
   exec { 'execute-sql-command':
     # execute the shell script
-    command => ['mysql --user=user3114394F --password=password3114394F db3114394F'],
+    command => [
+      'mysql -e "CREATE USER ''user3114394F''@''localhost'' IDENTIFIED BY ''password3114394F''" ', 
+      'mysql -e "CREATE DATABASE db3114394F;"',
+      'mysql -e "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON db3114394F.* TO ''user3114394F''@''localhost''; "'
+    ],
     provider => shell,
     require => Service['mysql-ubuntu-service']
   }
