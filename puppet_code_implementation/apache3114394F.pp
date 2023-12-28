@@ -3,29 +3,29 @@ class apache3114394F {
 
   $html_content = epp('module3114394f/index.epp')
 
-  package { 'Apache Server':
+  package { 'apache-server':
     name => 'apache2',
     ensure => 'installed'
   }
 
-  service { 'Apache Server Service':
+  service { 'apache-server-service':
     name => 'apache2',
     ensure => running,
     enable => true,
-    require => Package["Apache Server"]
+    require => Package["apache-server"]
   }
 
-  exec { 'Create app3114394F folder in /var/ww/html':
+  exec { 'create-app3114394f-folder-in-var-www-html':
     command => ["mkdir /var/www/html/app3114394F/"],
     provider => shell,
-    require => Service["Apache Service Service"]
+    require => Service["apache-server-service"]
   }
 
 
-  file { 'deploy html file':
+  file { 'deploy-html-file':
     path => '/var/www/html/app3114394F/index.html',
     ensure => 'file',
     content => "${html_content}",
-    require => Exec["Create app3114394F folder in /var/ww/html"]
+    require => Exec["create-app3114394f-folder-in-var-www-html"]
   }
 }
