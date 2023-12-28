@@ -17,7 +17,7 @@ class mysql_installer {
 
   exec { 'execute-sql-command':
     # execute the shell script
-    command => ['/bin/bash', 'mysql --user=user3114394F --password=password3114394F db3114394F'],
+    command => ['mysql --user=user3114394F --password=password3114394F db3114394F'],
     provider => shell,
     require => Service['mysql-ubuntu-service']
   }
