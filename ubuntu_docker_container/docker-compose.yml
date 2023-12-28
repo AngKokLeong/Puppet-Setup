@@ -13,7 +13,7 @@ networks:
 services:
   app:
     image: ubuntu_image
-    container_name: pa3114394F
+    container_name: pa3114394f
     ports:
       - 31200:80
     privileged: true
@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    hostname: pa3114394F
+    hostname: pa3114394f
 
     volumes:
       - ubuntu_data:/data
