@@ -4,6 +4,7 @@ Description=vlc.service
 [Service]
 User=root
 Environment="DISPLAY=:0"
+ExecStart=/usr/bin/vlc
 WorkingDirectory=/
 Restart=always
 
