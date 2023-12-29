@@ -8,8 +8,7 @@ class movefile {
     owner => 'user3114394F',
     group => 'user3114394F',
     mode => '0644',
-    recurse => 'remote',
-    require => Exec["create-home-folder"]
+    recurse => 'remote'
   }
 
 }
