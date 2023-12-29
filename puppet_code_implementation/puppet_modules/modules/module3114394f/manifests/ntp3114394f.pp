@@ -9,7 +9,7 @@ class module3114394f::ntp3114394f{
   }
 
   file { 'configure-ntp':
-    path => 'etc/chrony.conf',
+    path => '/etc/chrony.conf',
     ensure => 'present',
     content => "$timeserver"
   }
