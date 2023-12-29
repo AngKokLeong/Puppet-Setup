@@ -1,11 +1,11 @@
-<%- | Optional[String] $listen_port = undef | -%>
-<%- | Optional[String] $server_name = undef | -%>
+<%-  Optional[String] $listen_port = undef  -%>
+<%-  Optional[String] $server_name = undef  -%>
 
 
 
 # NGIX Configuration
 server {
-  <% unless $listen_port =~ Undef { -%>}
+  <% unless $listen_port =~ Undef { -%>
     listen <%= $listen_port %>;
   <% } -%>
   <% else { -%>
