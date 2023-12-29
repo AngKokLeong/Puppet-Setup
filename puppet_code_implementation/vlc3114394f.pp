@@ -18,22 +18,22 @@ class vlc3114394f {
       content => "[Unit]\nDescription=vlc.service\n\n[Service]\nUser=root\nEnvironment='DISPLAY=:0'\nExecStart=/usr/bin/vlc\nWorkingDirectory=/\n\n[Install]\nWantedBy=default.target"
     }
 
-    exec { 'change-the-permission-for-vlc-binary':
-      command => ["sed -i 's/geteuid/getppid/' /usr/bin/vlc"],
-      provider => 'shell',
-      onlyif => "test -e /usr/bin/vlc",
-      require => File['transfer-vlc-service-unit-file-to-puppet-agent']
-    }
+    #exec { 'change-the-permission-for-vlc-binary':
+    #  command => ["sed -i 's/geteuid/getppid/' /usr/bin/vlc"],
+    #  provider => 'shell',
+    #  onlyif => "test -e /usr/bin/vlc",
+    #  require => File['transfer-vlc-service-unit-file-to-puppet-agent']
+    #}
 
     exec { 'enable-vlc-service-in-systemd':
       command => ["systemctl enable /lib/systemd/system/vlc.service"],
       provider => 'shell',
-      onlyif => "test -e /lib/systemd/system/vlc.service",
-      require => Exec["change-the-permission-for-vlc-binary"]
+      onlyif => "test -e /lib/systemd/system/vlc.service"
+      #require => Exec["change-the-permission-for-vlc-binary"]
     }
 
     service { 'vlc_service':
-      name => 'vlc',
+      name => 'cvlc',
       ensure => "running",
       enable => 'true',
       require => Exec["enable-vlc-service-in-systemd"]
