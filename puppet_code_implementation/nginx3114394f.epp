@@ -1,6 +1,7 @@
-<%-  Optional[String] $listen_port = undef  -%>
-<%-  Optional[String] $server_name = undef  -%>
-
+<%-| 
+  Optional[String] $listen_port = undef,
+  Optional[String] $server_name = undef 
+|-%>
 
 
 # NGIX Configuration
