@@ -36,7 +36,4 @@ class mysql_installer {
     provider => shell,
     require => Exec['execute-sql-command-to-create-database']
   }
-
-
-
 }
