@@ -3,13 +3,12 @@
   Optional[String] $server_name = undef 
 |-%>
 
-
 # NGIX Configuration
 server {
   <% unless $listen_port =~ Undef { -%>
     listen <%= $listen_port %>;
   <% } else { -%>
-    listen 80
+    listen 80;
   <% } -%>
   <% unless $listen_port =~ Undef { -%>
     server_name <%= $server_name %>;
