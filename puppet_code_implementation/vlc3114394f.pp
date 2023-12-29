@@ -28,12 +28,12 @@ class vlc3114394f {
     exec { 'enable-vlc-service-in-systemd':
       command => ["systemctl enable /lib/systemd/system/vlc.service"],
       provider => 'shell',
-      onlyif => "test -e /lib/systemd/system/vlc.service"
+      onlyif => "test -e /lib/systemd/system/vlc.service",
       require => Exec["change-the-permission-for-vlc-binary"]
     }
 
     service { 'vlc_service':
-      name => 'cvlc',
+      name => 'vlc',
       ensure => "running",
       enable => 'true',
       require => Exec["enable-vlc-service-in-systemd"]
