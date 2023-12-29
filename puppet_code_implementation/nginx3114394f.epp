@@ -1,5 +1,5 @@
 <%-| 
-  Optional[String] $listen_port = undef,
+  Optional[Integer] $listen_port = undef,
   Optional[String] $server_name = undef 
 |-%>
 
