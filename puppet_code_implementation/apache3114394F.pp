@@ -18,7 +18,8 @@ class apache3114394F {
   exec { 'create-app3114394f-folder-in-var-www-html':
     command => ["mkdir /var/www/html/app3114394F/"],
     provider => shell,
-    require => Service["apache-server-service"]
+    require => Service["apache-server-service"],
+    onlyif => "test ! -d /var/www/html/app3114394F"
   }
 
 
