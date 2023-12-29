@@ -11,12 +11,9 @@ server {
   <% } else { -%>
     listen 80
   <% } -%>
-
-
   <% unless $listen_port =~ Undef { -%>
     server_name <%= $server_name %>;
   <% } else { -%>
     server_name localhost;
   <% } -%>
-
 }
