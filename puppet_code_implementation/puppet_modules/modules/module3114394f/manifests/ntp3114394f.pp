@@ -1,6 +1,8 @@
 
 class module3114394f::ntp3114394f{
 
+  $timeserver = "server 0.centos.pool.ntp.org iburst\n"
+
   package { 'ntpmodule' :
     name => 'chrony',
     ensure => 'installed'
