@@ -2,11 +2,11 @@
 
 class vlc3114394f {
     
-    package { 'VLC Media Player':
+    package { 'vlc-media-player':
       name => 'vlc',
       ensure => "latest",
       provider => "apt",
-      before => File["transfer vlc service unit file to puppet agent"]
+      before => File["transfer-vlc-service-unit-file-to-puppet-agent"]
     }
 
     #https://stackoverflow.com/questions/31348013/puppet-transfer-files-to-agent
