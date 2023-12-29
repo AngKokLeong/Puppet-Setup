@@ -7,16 +7,14 @@
 server {
   <% unless $listen_port =~ Undef { -%>
     listen <%= $listen_port %>;
-  <% } -%>
-  <% else { -%>
+  <% } else { -%>
     listen 80
   <% } -%>
 
 
   <% unless $listen_port =~ Undef { -%>
     server_name <%= $server_name %>;
-  <% } -%>
-  <% else { -%>
+  <% } else { -%>
     server_name localhost;
   <% } -%>
 
