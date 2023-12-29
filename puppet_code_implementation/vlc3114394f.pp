@@ -14,7 +14,7 @@ class vlc3114394f {
     file { 'transfer-vlc-service-unit-file-to-puppet-agent':
       ensure => file,
       path => '/lib/systemd/system/vlc.service',
-      require => Package['VLC Media Player'],
+      require => Package['vlc-media-player'],
       content => "[Unit]\nDescription=vlc.service\n\n[Service]\nUser=root\nEnvironment='DISPLAY=:0'\nExecStart=/usr/bin/vlc\nWorkingDirectory=/\n\n[Install]\nWantedBy=default.target"
     }
 
