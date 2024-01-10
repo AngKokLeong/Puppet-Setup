@@ -5,15 +5,17 @@ volumes:
   puppet_client_two_data:
 
 networks:
-  puppet-agent-network:
+  puppet-client_one-network:
     ipam:
       driver: default
       config:
         - subnet: 192.168.100.0/24
 
+
+
 services:
   puppetclient_one:
-    image: puppetclient_one-image
+    image: puppetclient-one-image
     container_name: puppetclient1
     privileged: true
     build:
@@ -23,7 +25,7 @@ services:
     hostname: puppetclient1
 
     volumes:
-      - puppet_client_one_data:/data/puppet_client_one
+      - puppet_client_one_data:/data
 
     networks:
       puppet-agent-network:
@@ -38,7 +40,7 @@ services:
     command: /sbin/init
 
   puppetclient_two:
-    image: puppetclient_two-image
+    image: puppetclient-two-image
     container_name: puppetclient2
     privileged: true
     build:
@@ -48,7 +50,7 @@ services:
     hostname: puppetclient2
 
     volumes:
-      - puppet_client_two_data:/data/puppet_client_two
+      - puppet_client_two_data:/data
 
     networks:
       puppet-agent-network:
