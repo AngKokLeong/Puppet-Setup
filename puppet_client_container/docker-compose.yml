@@ -1,8 +1,8 @@
 version: '3.8'
 
 volumes:
-  puppet_client_one_data:
-  puppet_client_two_data:
+  puppet_client_data:
+
 
 networks:
   puppet-agent-network:
@@ -25,7 +25,7 @@ services:
     hostname: puppetclient1
 
     volumes:
-      - puppet_client_one_data:/data
+      - puppet_client_data:/data/puppetclientone
 
     networks:
       puppet-agent-network:
@@ -50,7 +50,7 @@ services:
     hostname: puppetclient2
 
     volumes:
-      - puppet_client_two_data:/data
+      - puppet_client_data:/data/puppetclienttwo
 
     networks:
       puppet-agent-network:
