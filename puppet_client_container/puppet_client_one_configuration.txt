@@ -1,0 +1,3 @@
+[main]
+certname = puppetclient1.localdomain
+server = sddo-vm.localdomain
