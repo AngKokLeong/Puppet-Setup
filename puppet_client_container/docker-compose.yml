@@ -5,7 +5,7 @@ volumes:
   puppet_client_two_data:
 
 networks:
-  puppet-client_one-network:
+  puppet-agent-network:
     ipam:
       driver: default
       config:
