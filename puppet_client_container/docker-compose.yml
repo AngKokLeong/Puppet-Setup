@@ -12,7 +12,7 @@ networks:
         - subnet: 192.168.100.0/24
 
 services:
-  app:
+  puppetclient_one:
     image: puppetclient_one-image
     container_name: puppetclient1
     privileged: true
@@ -37,7 +37,7 @@ services:
     # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
     command: /sbin/init
 
-  app:
+  puppetclient_two:
     image: puppetclient_two-image
     container_name: puppetclient2
     privileged: true
