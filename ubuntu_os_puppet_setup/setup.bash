@@ -55,6 +55,10 @@ gunzip puppet-enterprise-2023.5.0-ubuntu-22.04-amd64.tar.gz
 echo 'Extracting the files in tar archive'
 tar xvf puppet-enterprise-2023.5.0-ubuntu-22.04-amd64.tar
 
+
+# Remove the tar archive file
+rm puppet-enterprise-2023.5.0-ubuntu-22.04-amd64.tar
+
 echo 'Change working directory to puppet folder'
 cd puppet-enterprise-2023.5.0-ubuntu-22.04-amd64
 
@@ -73,6 +77,5 @@ puppet agent -t
 
 puppet agent -t
 
-#Pull the git repository from Github for Puppet-Setup
-git clone https://github.com/AngKokLeong/Puppet-Setup.git
+
 
