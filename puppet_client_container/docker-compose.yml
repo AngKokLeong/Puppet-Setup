@@ -37,7 +37,8 @@ services:
 
     # Overrides default command so things don't shut down after the process ends.
     # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
-    command: /sbin/init
+    # run the command /sbin/init if the ubuntu os version is 18.04
+    command: /lib/systemd/systemd
 
   puppetclient_two:
     image: puppetclient-two-image
@@ -62,4 +63,5 @@ services:
 
     # Overrides default command so things don't shut down after the process ends.
     # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
-    command: /sbin/init
+    # run the command /sbin/init if the ubuntu os version is 18.04
+    command: /lib/systemd/systemd
