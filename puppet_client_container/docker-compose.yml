@@ -17,6 +17,8 @@ services:
   puppetclient_one:
     image: puppetclient-one-image
     container_name: puppetclient1
+
+    # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
     privileged: true
     build:
       context: .
@@ -36,13 +38,15 @@ services:
       - "puppetclient1.localdomain puppetclient1:192.168.100.3"
 
     # Overrides default command so things don't shut down after the process ends.
-    # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
     # run the command /sbin/init if the ubuntu os version is 18.04
+    # https://stackoverflow.com/questions/58920401/why-ubuntu-18-04-use-sbin-init-instead-of-systemd
     command: /lib/systemd/systemd
 
   puppetclient_two:
     image: puppetclient-two-image
     container_name: puppetclient2
+
+    # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
     privileged: true
     build:
       context: .
@@ -62,6 +66,6 @@ services:
       - "puppetclient2.localdomain puppetclient2:192.168.100.4"
 
     # Overrides default command so things don't shut down after the process ends.
-    # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
+    # https://stackoverflow.com/questions/58920401/why-ubuntu-18-04-use-sbin-init-instead-of-systemd
     # run the command /sbin/init if the ubuntu os version is 18.04
     command: /lib/systemd/systemd
