@@ -2,7 +2,8 @@ FROM ubuntu:22.04
 
 WORKDIR /
 
-COPY . ./
+COPY puppet_client_one_configuration.txt ./
+COPY extend_path_variable_puppet_command.txt ./
 
 RUN apt-get -yq update
 RUN apt-get -yq install wget
