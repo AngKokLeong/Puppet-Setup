@@ -17,8 +17,7 @@ services:
   puppetclient_one:
     image: puppetclient-one-image
     container_name: puppetclient1
-    ports:
-      - 22:22
+
     # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
     privileged: true
     build:
@@ -46,8 +45,7 @@ services:
   puppetclient_two:
     image: puppetclient-two-image
     container_name: puppetclient2
-    ports:
-      - 22:22
+
     # https://stackoverflow.com/questions/69052575/how-to-bring-up-a-docker-compose-container-as-privileged 
     privileged: true
     build:
