@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd ~/Desktop
 
 #1. Install relevant packages in Ubuntu
@@ -28,7 +30,16 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docke
 chmod 777 /var/run/docker.sock
 
 
-#2. Setup the IP address
+# 2. Setup Hostname
+echo ''
+cat hostname > /etc/hostname
+
+# 3. Setup /etc/hosts
+echo ''
+cat hosts > /etc/hosts
+
+
+# 4. Setup the IP address
 
 # Use netplan to apply static address
 cat netplan.yaml > /etc/netplan/01-network-manager-all.yaml
@@ -37,15 +48,16 @@ cat netplan.yaml > /etc/netplan/01-network-manager-all.yaml
 netplan apply    
 
 
-#3. Setup Puppet Server
 
-#3.1 Download the package using wget 
+#5. Setup Puppet Server
+
+#5.1 Download the package using wget 
 # Refer to https://www.ubuntumint.com/wget-force-ipv4-ipv6-connection/
 # Puppet download link retrieved from https://www.puppet.com/downloads/puppet-enterprise 
 wget --content-disposition --inet4-only 'https://pm..puppet.com/cgi-bin/download.cgi?dist=ubuntu&rel=22.04&arch=amd64&ver=latest' 
 
-#3.2 Unpack the archive
-echo 'Step 3.2 Unpack the archive'
+#5.2 Unpack the archive
+echo 'Step 4.2 Unpack the archive'
 
 # using gunzip
 echo 'Extract the archive using gunzip'
@@ -62,13 +74,13 @@ rm puppet-enterprise-2023.5.0-ubuntu-22.04-amd64.tar
 echo 'Change working directory to puppet folder'
 cd puppet-enterprise-2023.5.0-ubuntu-22.04-amd64
 
-#3.3 Run the installer
+#5.3 Run the installer
 echo 'Running the installer for Puppet Enterprise'
 ./puppet-enterprise-installer -y 
 
 
 
-#3.4 Change the password
+#5.4 Change the password
 puppet infrastructure console_password --password password
 
 
@@ -78,4 +90,11 @@ puppet agent -t
 puppet agent -t
 
 
+# 6. Install puppet-bolt
+wget --inet4-only --content-disposition 'https://apt.puppet.com/puppet-tools-release-bionic.deb'
 
+dpkg --install puppet-tools-release-bionic.deb 
+
+apt-get update -yq
+
+apt-get install puppet-bolt -yq
