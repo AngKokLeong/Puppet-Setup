@@ -13,7 +13,8 @@ RUN apt-get -yq install wget
 RUN wget --inet4-only --content-disposition 'https://apt.puppet.com/pool/bionic/puppet8/p/puppet-agent/puppet-agent_8.3.1-1bionic_amd64.deb'
 RUN dpkg --install puppet-agent_8.3.1-1bionic_amd64.deb
 
-RUN apt-get -yq install nano vim iproute2 puppet-agent iputils-ping systemd curl iputils-ping net-tools openssh-server
+# need to install openssh-server and sudo and net-tools to allow bolt command to work
+RUN apt-get -yq install nano vim iproute2 puppet-agent iputils-ping systemd curl iputils-ping net-tools openssh-server sudo
 
 RUN cat puppet_client_one_configuration.txt > /etc/puppetlabs/puppet/puppet.conf
 RUN cat extend_path_variable_puppet_command.txt >> ~/.bashrc
